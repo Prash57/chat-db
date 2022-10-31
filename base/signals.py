@@ -12,6 +12,7 @@ def createProfile(sender, instance, created, **kwargs):
             name=user.first_name,
         )
 
+
 def updateUser(sender, instance, created, **kwargs):
     profile = instance
     user = profile.user
@@ -27,7 +28,7 @@ def deleteUser(sender, instance, **kwargs):
         user = instance.user
         user.delete()
     except:
-        pass 
+        pass
 
 
 post_save.connect(createProfile, sender=User)
